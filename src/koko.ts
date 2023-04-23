@@ -27,11 +27,11 @@ Output: 23
 
 const minEatingSpeed = function (piles: number[], h: number) {
   if (h < piles.length) {
-    throw new Error();
+    throw new Error("The value of the clock must not be less than the length of the array");
   }
 
   if (piles.length > 1_000_000_000 || piles.length < 1) {
-    throw new Error();
+    throw new Error("Array length limits violated");
   }
 
   let [left, right] = [1, Math.max(...piles)];
@@ -52,6 +52,9 @@ const minEatingSpeed = function (piles: number[], h: number) {
   
   const getHourSpent = (mid: number, piles: number[], hourSpent = 0) => {
     for (const pile of piles) {
+      if (pile < 1 || pile > 1_000_000_000) {
+        throw new Error("The value of the piece does not satisfy the constraint");
+      }
       // for example pile = 10 and mid = 2 => hourSpent = 5
       hourSpent += Math.ceil(pile / mid);
     }
