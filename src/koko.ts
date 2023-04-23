@@ -30,6 +30,10 @@ const minEatingSpeed = function (piles: number[], h: number) {
     throw new Error();
   }
 
+  if (piles.length > 1_000_000_000 || piles.length < 1) {
+    throw new Error();
+  }
+
   let [left, right] = [1, Math.max(...piles)];
 
   while (left < right) {
