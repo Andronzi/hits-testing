@@ -1,4 +1,4 @@
-const cz = require("./commitizen.config.js");
+const cz = require("./commitizen.config.cjs");
 
 module.exports = {
   extends: ["gitmoji"],

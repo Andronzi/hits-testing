@@ -1,13 +1,20 @@
 {
   "devDependencies": {
-    "@types/node": "^18.16.0"
+    "@commitlint/cli": "^17.6.1",
+    "@types/node": "^18.16.0",
+    "commitizen": "^4.3.0",
+    "commitlint-config-gitmoji": "^2.3.1",
+    "cz": "^1.8.2",
+    "cz-customizable": "^7.0.0",
+    "husky": "^8.0.3"
   },
   "name": "qa-hits-qa-functional-tests",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "jest"
+    "cm": "cz",
+    "test": "jest ./build "
   },
   "author": "",
   "license": "ISC",
@@ -20,7 +27,7 @@
       "path": "./node_modules/cz-customizable"
     },
     "cz-customizable": {
-      "config": "./config/git/commitizen.config.js"
+      "config": "./config/git/commitizen.config.cjs"
     }
   }
 }
