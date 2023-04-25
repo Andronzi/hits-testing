@@ -27,7 +27,8 @@ piles.length <= h <= 10^9
 */
 
 describe("h less than piles array length", () => {
-    test.each([[basicPilesArray.length - 1], [1], [0], [-1], [-10000]])("should return proper result when passed arguments are: %i, %i", (h) => {
+    test.each([[basicPilesArray.length - 1], [1], [0], [-1], [-10000]])
+		("should return proper result when passed arguments are: %i, %i", (h) => {
         expect(() => minEatingSpeed(basicPilesArray, h)).toThrow();
     })
 });
