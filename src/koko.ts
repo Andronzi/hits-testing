@@ -26,7 +26,7 @@ Output: 23
 */
 
 const minEatingSpeed = function (piles: number[], h: number) {
-  if (h < piles.length) {
+  if (h < piles.length || h > 1_000_000_000) {
     throw new Error("The value of the clock must not be less than the length of the array");
   }
 
