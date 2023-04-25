@@ -55,6 +55,6 @@ describe("check that answer in the neighborhood with 1", () => {
 		[basicPilesArray, arraySum - 1, 2]
 	])
 	("should return exception when passed arguments are: %i, %i", (piles, h, result) => {
-		expect(() => minEatingSpeed(piles, h)).toBe(result);
+		expect(minEatingSpeed(piles, h)).toBe(result);
 	})
 });
