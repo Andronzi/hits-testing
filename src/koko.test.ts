@@ -33,6 +33,7 @@ describe("h less than piles array length", () => {
 });
 
 describe("check constrains for piles", () => {
+	// Не могу протестить на длину = 1_000_000_000 + 1 из-за ошибки выделения памяти
 	test.each([
 		[[], 1], 
 		[new Array(100).fill(0), 10], 
@@ -41,5 +42,18 @@ describe("check constrains for piles", () => {
 	])
 	("should return exception when passed arguments are: %i, %i", (piles, h) => {
 		expect(() => minEatingSpeed(piles, h)).toThrow();
+	})
+});
+
+describe("check that answer in the neighborhood with 1", () => {
+  const arraySum = [...basicPilesArray].reduce((p, n) => p + n, 0);
+	test.each([
+		[basicPilesArray, arraySum, 1],
+		[basicPilesArray, arraySum + 1, 1],
+		[basicPilesArray, arraySum + 10000, 1],
+		[basicPilesArray, arraySum - 1, 2]
+	])
+	("should return exception when passed arguments are: %i, %i", (piles, h, result) => {
+		expect(() => minEatingSpeed(piles, h)).toBe(result);
 	})
 });
