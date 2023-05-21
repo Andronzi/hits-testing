@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const { minEatingSpeed } = require("./koko.js");
+const minEatingSpeed = require("./koko.js");
 
 app.set("view engine", "ejs");
 

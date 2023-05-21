@@ -25,9 +25,11 @@ Input: piles = [30,11,23,4,20], h = 6
 Output: 23
 */
 
-const minEatingSpeed = function (piles: number[], h: number) {
+const minEatingSpeed = function (piles, h) {
   if (h < piles.length || h > 1_000_000_000) {
-    throw new Error("The value of the clock must not be less than the length of the array");
+    throw new Error(
+      "The value of the clock must not be less than the length of the array"
+    );
   }
 
   if (piles.length > 1_000_000_000 || piles.length < 1) {
@@ -46,20 +48,20 @@ const minEatingSpeed = function (piles: number[], h: number) {
     const isTargetLess = hourSpent <= h;
     if (isTargetLess) right = mid;
   }
-  
-    return right;
-  };
-  
-  const getHourSpent = (mid: number, piles: number[], hourSpent = 0) => {
-    for (const pile of piles) {
-      if (pile < 1 || pile > 1_000_000_000) {
-        throw new Error("The value of the piece does not satisfy the constraint");
-      }
-      // for example pile = 10 and mid = 2 => hourSpent = 5
-      hourSpent += Math.ceil(pile / mid);
+
+  return right;
+};
+
+const getHourSpent = (mid, piles, hourSpent = 0) => {
+  for (const pile of piles) {
+    if (pile < 1 || pile > 1_000_000_000) {
+      throw new Error("The value of the piece does not satisfy the constraint");
     }
-  
-    return hourSpent;
-  };
-  
-export default minEatingSpeed;
+    // for example pile = 10 and mid = 2 => hourSpent = 5
+    hourSpent += Math.ceil(pile / mid);
+  }
+
+  return hourSpent;
+};
+
+module.exports = minEatingSpeed;
