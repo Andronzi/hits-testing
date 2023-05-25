@@ -48,6 +48,8 @@ app.post("/", urlencodedParser, function (req, res) {
 
 require("./routes/tutorial.route.js")(app);
 
-app.listen(3000, () => console.log("Сервер запущен..."));
+const PORT = process.env.NODE_DOCKER_PORT || 8080;
+
+app.listen(PORT, () => console.log("Сервер запущен..."));
 
 module.exports = app;
