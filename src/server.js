@@ -2,6 +2,22 @@ const express = require("express");
 const app = express();
 const minEatingSpeed = require("./koko.js");
 
+app.use(express.json());
+
+const db = require("./models");
+
+db.mongoose
+  .connect(db.url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("connect to the database");
+  })
+  .catch((err) => {
+    console.log("cannot connect to the database");
+  });
+
 app.set("view engine", "ejs");
 
 // создаем парсер для данных application/x-www-form-urlencoded
@@ -29,6 +45,8 @@ app.post("/", urlencodedParser, function (req, res) {
     result: result,
   });
 });
+
+require("./routes/tutorial.route.js")(app);
 
 app.listen(3000, () => console.log("Сервер запущен..."));
 

@@ -282,11 +282,6 @@ describe("check that answer in the neighborhood with 1", () => {
   const piles = [30, 11, 23, 4, 20];
   const h = piles.reduce((p, c) => p + c, 0);
 
-  // [basicPilesArray, arraySum, 1],
-  //   [basicPilesArray, arraySum + 1, 1],
-  //   [basicPilesArray, arraySum + 10000, 1],
-  //   [basicPilesArray, arraySum - 1, 2];
-
   it("piles sum equals h", (done) => {
     chai
       .request(app)
