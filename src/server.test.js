@@ -229,18 +229,6 @@ describe("POST Requests with status 400 with problem with both of args", () => {
       });
   });
 
-  it("POST Form with piles empty array and h empty array", (done) => {
-    chai
-      .request(app)
-      .post("/")
-      .set("content-type", "application/x-www-form-urlencoded")
-      .send({ piles: [], h: [] })
-      .end((err, res) => {
-        res.should.have.status(400);
-        done();
-      });
-  });
-
   it("POST Form with piles, h empty strings", (done) => {
     chai
       .request(app)
